@@ -96,6 +96,36 @@ Landing Page / Main Page
 - **Desktop** — Three columns: Parameters (15%) | Tiles (55%) | Summary/Log (30%)
 - **Mobile** — Single column, vertical stack, collapsible parameters panel
 
+### Settings Sections (GI7B Standard)
+
+| Section | Route | Icon | Mneme World Gen Contents |
+|---------|-------|------|--------------------------|
+| JSON Tables | `/settings/tables` | 📄 | Star tables, world tables, system tables — all editable |
+| Mechanics Modules | `/settings/mechanics` | 🧩 | Standard Mneme / house-rule variant toggles |
+| Generation Options | `/settings/options` | 🎲 | Presets ("Habitable World", "Random System"), filter locks |
+| Other Settings | `/settings/other` | 🔧 | Theme, layout default, version control, PWA install |
+
+### GI7B Generator Suite
+
+| Generator | Repo | UI Role |
+|-----------|------|---------|
+| CE ShipGen | xunema/ce-shipgen | Canonical UI reference ✅ |
+| CE CharacterGen | xunema/cecharactergen | M2 UI alignment in progress |
+| Mneme World Gen | xunema/mneme-world-generator-pwa | M7 UI alignment pending |
+
+### Delta: Current vs Target
+
+| Feature | Current State | Target (GI7B Standard) |
+|---------|---------------|------------------------|
+| Theme Toggle | ✅ Implemented (M2) | 🌙/☀️ in header |
+| Layout Toggle | ✅ Implemented (M2) | 🖥️/📱 in header |
+| Settings routes | `/my-worlds`, `/create-new` (non-standard) | `/settings/tables`, `/settings/mechanics`, `/settings/options`, `/settings/other` |
+| Route: generate | `/create-new/custom` | `/generate` |
+| Route: library | `/my-worlds` | `/library` |
+| Tile system | shadcn/ui components | GI7B tile system (Collapsed/Expanded/Focused) |
+
+> **UI Alignment Milestone:** Full GI7B route and tile alignment is M7. Settings sections should use standard routes from initial implementation.
+
 ### Reference Implementation
 
 See CE ShipGen (`github.com/xunema/ce-shipgen`) — all UI patterns, component names, and routing conventions should match.

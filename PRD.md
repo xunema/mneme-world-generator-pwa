@@ -71,13 +71,30 @@ Landing Page  (/)
 - **Desktop** — Three-column layout
 - **Mobile** — Single-column, collapsible parameters, vertical tile stack
 
+### 2.4 Settings Sections (GI7B Standard)
+
+| Section | Route | Icon | Purpose |
+|---------|-------|------|---------|
+| JSON Tables | `/settings/tables` | 📄 | Edit all generation tables (canonical + custom) |
+| Mechanics Modules | `/settings/mechanics` | 🧩 | Rule variant toggles (standard Mneme / house rules) |
+| Generation Options | `/settings/options` | 🎲 | Presets, filter constraints, "Random Everything" |
+| Other Settings | `/settings/other` | 🔧 | Theme, layout default, version control, PWA install |
+
+### 2.5 GI7B Generator Suite
+
+| Generator | Repo | UI Role |
+|-----------|------|---------|
+| CE ShipGen | xunema/ce-shipgen | Canonical UI reference ✅ |
+| CE CharacterGen | xunema/cecharactergen | M2 UI alignment in progress |
+| Mneme World Gen | xunema/mneme-world-generator-pwa | M7 UI alignment pending |
+
 ---
 
 ## 3. FUNCTIONAL REQUIREMENTS
 
 ### FR-001: Star Generation
 **Priority:** Critical — M3
-**Source:** Wiki Chapter 2 (see `docs/knowledge/02_star_generation.md`)
+**Source:** Wiki Ch. 4 — Determine Star (see `docs/knowledge/04_determine_star.md`)
 
 Generate primary and companion stars for a system:
 - Star type (O/B/A/F/G/K/M)
@@ -91,7 +108,7 @@ Generate primary and companion stars for a system:
 
 ### FR-002: World Generation (UWP)
 **Priority:** Critical — M4
-**Source:** Wiki Chapter 3 (see `docs/knowledge/03_world_generation.md`)
+**Source:** Wiki Ch. 5–8 (see `docs/knowledge/05_determine_main_world.md`, `06_determine_habitability.md`, `08_determine_inhabitants.md`)
 
 Generate Universal World Profile:
 - Size (0–A)
@@ -110,7 +127,7 @@ Generate Universal World Profile:
 
 ### FR-003: System Details
 **Priority:** High — M5
-**Source:** Wiki Chapter 4 (see `docs/knowledge/04_system_details.md`)
+**Source:** Wiki Ch. 9 + S3 (see `docs/knowledge/09_determine_planetary_system.md`, `S3_logic_spec_260222.md`)
 
 - Gas giants, asteroid belts
 - Planetary orbits (inner, habitable, outer zones)
@@ -123,7 +140,7 @@ Generate Universal World Profile:
 
 ### FR-004: Trade & Economy
 **Priority:** Medium — M6+
-**Source:** Wiki Chapter 5 (see `docs/knowledge/05_trade_economy.md`)
+**Source:** Wiki Ch. 10 — Appendix (see `docs/knowledge/10_appendix.md`)
 
 - Trade volume between systems
 - Market prices and fluctuations
@@ -203,22 +220,20 @@ All tables come from the Mneme World Generator wiki. Local copies in `docs/knowl
 
 **Tables required for generation (to be populated during wiki sync):**
 
-| Table | Chapter | Local File | Status |
-|-------|---------|------------|--------|
-| Star Type Roll | Ch. 2 | `docs/knowledge/02_star_generation.md` | ⚠️ Pending sync |
-| Luminosity Class | Ch. 2 | `docs/knowledge/02_star_generation.md` | ⚠️ Pending sync |
-| World Size | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Atmosphere | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Hydrographics | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Population | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Government | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Law Level | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Tech Level | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Trade Codes | Ch. 3 | `docs/knowledge/03_world_generation.md` | ⚠️ Pending sync |
-| Gas Giants & Belts | Ch. 4 | `docs/knowledge/04_system_details.md` | ⚠️ Pending sync |
-| Travel Times | Ch. 4 | `docs/knowledge/04_system_details.md` | ⚠️ Pending sync |
+| Table | Wiki Chapter | Local Knowledge File | Status |
+|-------|-------------|----------------------|--------|
+| Star Type Roll | Ch. 4 — Determine Star | `docs/knowledge/04_determine_star.md` | ✅ Synced |
+| Luminosity Class | Ch. 4 — Determine Star | `docs/knowledge/04_determine_star.md` | ✅ Synced |
+| World Type / Size | Ch. 5 — Determine Main World | `docs/knowledge/05_determine_main_world.md` | ✅ Synced |
+| Atmosphere / Hydrographics / Temp | Ch. 6 — Determine Habitability | `docs/knowledge/06_determine_habitability.md` | ✅ Synced |
+| World Position (AU) | Ch. 7 — Determine Position | `docs/knowledge/07_determine_position.md` | ✅ Synced |
+| Population / Government / Law | Ch. 8 — Determine Inhabitants | `docs/knowledge/08_determine_inhabitants.md` | ✅ Synced |
+| Tech Level / Starport / PVS | Ch. 8 — Determine Inhabitants | `docs/knowledge/08_determine_inhabitants.md` | ✅ Synced |
+| Gas Giants / Belts / Orbits | Ch. 9 — Determine Planetary System | `docs/knowledge/09_determine_planetary_system.md` | ✅ Synced |
+| Orbital Mechanics (Hill stability) | Supplemental S3 — Logic Spec v2.1 | `docs/knowledge/S3_logic_spec_260222.md` | ✅ Synced |
+| Economy / TL / Asteroid Types | Ch. 10 — Appendix | `docs/knowledge/10_appendix.md` | ✅ Synced |
 
-> All tables must be extracted from the wiki and stored as JSON in `data/` before implementation.
+> **Note:** Knowledge base is fully synced as of 2026-03-04. All generation rules reference `docs/knowledge/` files — see `Mneme_World_Generator_Wiki_Sync.md` for re-sync instructions. Tables must be extracted from these files into JSON in `data/` before implementation.
 
 ---
 
