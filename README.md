@@ -53,6 +53,36 @@ This app is part of the GI7B Generator Suite. All three generators share the sam
 
 ---
 
+## 🧭 GI7B UI Standard (Navigation Tree)
+
+```
+Landing Page (/)
+│
+├── 🌙/☀️ Theme Toggle      [header — always visible]
+├── 🖥️/📱 Layout Toggle     [header — always visible]
+│
+├── ✨ Generate Now (/generate)
+│   └── Star → World → System generation — tile-based
+│
+├── 📚 Library (/library)
+│   └── Saved systems — search, filter, export
+│
+└── ⚙️ Settings (/settings)
+    ├── 📄 JSON Tables        (/settings/tables)
+    ├── 🧩 Mechanics Modules  (/settings/mechanics)
+    ├── 🎲 Generation Options (/settings/options)
+    └── 🔧 Other Settings     (/settings/other)
+```
+
+### Tile System
+| State | Description |
+|-------|-------------|
+| **Collapsed** | Summary only |
+| **Expanded** | Full content |
+| **Focused** | Full-screen overlay — ESC to exit |
+
+---
+
 ## 🚀 Tech Stack
 
 - **React 19** + TypeScript + Vite 7
@@ -107,8 +137,13 @@ mneme-world-generator-pwa/
 ├── docs/
 │   └── knowledge/                         ← Local wiki chapters (sync first!)
 │       ├── 00_index.md
-│       ├── 02_star_generation.md
-│       ├── 03_world_generation.md
+│       ├── 04_determine_star.md
+│       ├── 05_determine_main_world.md
+│       ├── 06_determine_habitability.md
+│       ├── 07_determine_position.md
+│       ├── 08_determine_inhabitants.md
+│       ├── 09_determine_planetary_system.md
+│       ├── S3_logic_spec_260222.md        ← canonical orbital mechanics (v2.1)
 │       └── ...
 ├── data/                                  ← JSON generation tables (extracted from wiki)
 └── src/
