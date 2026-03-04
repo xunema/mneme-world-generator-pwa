@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 
-docs
+# docs/ is tracked — PAD knowledge base (wiki syncs, reference chapters)
+# docs
 
 # Editor directories and files
 .vscode/*
